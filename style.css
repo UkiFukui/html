@@ -1,6 +1,14 @@
 body {
+  color: #333;
+  font-family: "游ゴシック",YuGothic,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+  font-size: 14px;
+  font-weight: 500;  
   margin: 0;
   padding: 0;
+}
+
+ul, ol {
+  list-style: none;
 }
 
 a {
@@ -9,9 +17,10 @@ a {
 
 .btn {
   color: #fff;
-  background-color: #ff8c00;
-  border-radius: 100vh;
+  background-color: #f79214;
+  border-radius: 38px;
   border: none;
+  display: flex;
 }
 
 /*上半分（背景画像が設定されている部分）*/
@@ -95,7 +104,7 @@ a {
   height: 100%;
   width: 100%;
   top: 50px;
-  left: 100%;
+  /*left: 100%;*/
   z-index: 80;
   background-color: #000000;
   background: rgba(0,0,0,0.8);
@@ -112,7 +121,6 @@ a {
 }
 
 .hamburger-item {
-  list-style: none;
   margin: 20px 0;
 }
 
@@ -159,54 +167,74 @@ header {
 }
 
 .img-potepan {
-  width: 180px;
-  padding: 0 0 0 30px;
+  height: 20px;
+  width: auto;
+  margin-left:36px;
 }
 
 .menu-group {
   display: flex;
 }
 
-.menu-item {
-  display: inline-block;
-  font-size: 8px;
+.menu-item-link {
+  display: block;
+  padding: 0 20px;
+}
+
+.menu-item-link>span {
+  display: block;
   text-align: center;
-  margin: 0 20px;
-  list-style: none;
-
+  font-weight: 700;
 }
 
-.menu-item::first-line {
+.menu-item-link>span:first-child {
   font-size: 12px;
-  font-weight: bold;
+  font-family: "Lato",sans-serif;
 }
 
-.menu-item > a:visited {
-  color: #000000;
+.menu-item-link>span:last-child {
+  font-size: 10px
+}
+
+.menu-item-link:visited {
+  color: #333;
 }
 
 .btn-header {
-  font-size: 11.5px;
+  font-size: 12px;
   padding: 10px 20px;
   margin: 0 30px;
 }
 
 /*真ん中（最短五ヶ月での部分）*/
+
+.firstview-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .appeal-group {
-  position: absolute;
-  top: 15%;
-  left: 15%;
+  /*position: absolute;*/
+  /*top: 15%;*/
+  /*left: 15%;*/
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: fit-content;
   text-align: center;
+  margin-bottom: 70px;
 }
 
 .top-appeal {
-  font-size: 36px;
-  font-weight: bold;
+  font-family: "Lato",sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 54px;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .img-appeal {
@@ -215,12 +243,11 @@ header {
 }
 
 .img-appeal > img {
-  margin: 5px;
+  margin-right: 8px;
 }
 
 .img-no1 {
- height: 200px;
- width: 200px;
+ width: 40%;
 }
 
 .btn-main {
@@ -234,10 +261,10 @@ header {
 .annotation {
   font-size: 11.5px;
   color: #c0c0c0;
-  width: 80%;
-  position: absolute;
-  left: 15%;
-  bottom: 20px;
+  /*width: 80%;*/
+  /*position: absolute;*/
+  /*left: 15%;*/
+  /*bottom: 20px;*/
 }
 
 .annotation > p {
@@ -246,7 +273,7 @@ header {
 
 /*下半分（ポテパンキャンプとはの部分）*/
 .firstviw-bottom {
-  background-color: #ff8c00;
+  background-color: #f79214;
   padding: 30px;
 }
 
