@@ -7,10 +7,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  opacity: 0.8;
-}
-
 .btn {
   color: #fff;
   background-color: #ff8c00;
@@ -27,13 +23,134 @@ a:hover {
   position: relative
 }
 
+/*画面を縮小した時のメニュー部分*/
+.sp-header {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 90;
+  top: 0;
+}
+
+.img-potepan-sp {
+  width: 180px;
+  padding: 20px 0 0 30px;
+}
+
+.hamburger-menu-box {
+  position: fixed;
+  top: 0;
+  right: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+.hamburger-menu-box span,
+.hamburger-menu-box span::before,
+.hamburger-menu-box span::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 30px;
+  border-radius: 3px;
+  background-color: #808080;
+  position: absolute;
+}
+
+.hamburger-menu-box span::before {
+  bottom: 10px;
+}
+
+.hamburger-menu-box span::after {
+  top: 10px;
+}
+
+#hamburger-menu-check {
+  display: none;
+}
+
+#hamburger-menu-check:checked ~ .hamburger-menu-box span {
+  background: rgba(255, 255, 255, 0);
+}
+
+#hamburger-menu-check:checked ~ .hamburger-menu-box span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#hamburger-menu-check:checked ~ .hamburger-menu-box span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+
+.hamburger-content {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 50px;
+  left: 100%;
+  z-index: 80;
+  background-color: #000000;
+  background: rgba(0,0,0,0.8);
+}
+
+#hamburger-menu-check:checked ~ .hamburger-content {
+  left: 0;
+}
+
+.hamburger-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hamburger-item {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.hamburger-link {
+  display: block;
+  width: 100%;
+  font-size: 11px;
+  color: #ff8c00;
+}
+
+.hamburger-link:visited {
+  color: #ff8c00;
+}
+
+.hamburger-link::first-line {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.btn-sp-header {
+  display: inline-block;
+  width: 200px;
+  padding: 20px 20px;
+
+}
+
+/*通常のメニュー部分*/
+.firtsview-top a:hover {
+  opacity: 0.8;
+  position: relative;
+}
+
 header {
-  padding-top: 15px;
+  padding-top: 25px;
   display: flex;
   align-items: center;
   width: 100%;
   height: 35px;
-  
 }
 
 .site-top {
@@ -41,7 +158,7 @@ header {
   margin-right: auto;
 }
 
-.image-potepan {
+.img-potepan {
   width: 180px;
   padding: 0 0 0 30px;
 }
@@ -55,6 +172,8 @@ header {
   font-size: 8px;
   text-align: center;
   margin: 0 20px;
+  list-style: none;
+
 }
 
 .menu-item::first-line {
@@ -74,32 +193,34 @@ header {
 
 /*真ん中（最短五ヶ月での部分）*/
 .appeal-group {
+  position: absolute;
+  top: 15%;
+  left: 15%;
   display: flex;
   flex-direction: column;
   width: 500px;
   text-align: center;
-  margin-left: 15%;
 }
 
 .top-appeal {
   font-size: 36px;
   font-weight: bold;
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
-.image-appeal {
+.img-appeal {
   display: flex;
   align-items: center;
-  margin: auto;
 }
 
-.image-appeal > img {
+.img-appeal > img {
   margin: 5px;
 }
 
-.image-no1 {
+.img-no1 {
  height: 200px;
- weight: 200px;
+ width: 200px;
 }
 
 .btn-main {
@@ -113,6 +234,7 @@ header {
 .annotation {
   font-size: 11.5px;
   color: #c0c0c0;
+  width: 80%;
   position: absolute;
   left: 15%;
   bottom: 20px;
@@ -124,11 +246,15 @@ header {
 
 /*下半分（ポテパンキャンプとはの部分）*/
 .firstviw-bottom {
+  background-color: #ff8c00;
+  padding: 30px;
+}
+
+.bottom-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ff8c00;
-  padding: 30px;
+
 }
 
 .outline {
@@ -143,16 +269,30 @@ header {
   margin: 0px;
 }
 
-.image-reskilling {
+.img-reskilling {
   height: 75px;
   width: 150px;
 }
 
 
+/*横幅1081px以上の場合*/
+@media screen and (min-width:1081px) {
 
+.sp-header {
+  display: none;
+}
+
+.hamburger-content {
+  display: none;
+}  
+
+}
+
+
+/*横幅1080px以下の場合*/
 @media screen and (max-width: 1080px) {
 
-nav {
+header {
   display: none;
 }
 
@@ -160,8 +300,109 @@ nav {
   display: none;
 }
 
-header {
-  background-color: #fff;
+.firstview-top {
+  margin-top: 60px;
+}
+
+.appeal-group {
+  position: absolute;
+  right: auto;
+  left: 50px;
+}
+
+.annotation {
+  position: absolute;
+  right: auto;
+  left: 50px;
+}
+
+}
+
+/*横幅1024px以下の場合*/
+@media screen and (max-width: 1024px) {
+  
+.bottom-content {
+  width: 70%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.pv-container {
+  width: 100%;
+	padding-top: 56.25%;
+  margin-top: 20px;
+  position: relative;
+}
+
+.pv {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.outline {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.link-reskilling {
+  text-align: center;
+  margin-top: 30px;
+}
+
+}
+
+
+/*横幅770px以下の場合*/
+@media screen and (max-width: 770px) {
+ 
+.firstview-top {
+  background-image: url(https://camp.potepan.com/wp-content/themes/potepancamp/assets/images/home/first-view/top-hero-sp.jpg.webp);
+  height: 0;
+  width: 100%;
+  padding-top: 140%;
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+} 
+  
+.appeal-group {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.top-appeal {
+  font-size: 24px;
+}
+.img-appeal {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.img-appeal > img {
+  width: calc(100% / 3);
+}
+
+.img-no1 {
+  height: 100%;
+  /*width: 0%;*/
+}
+
+.annotation {
+  width: auto;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 20px;
+}
+
+.bottom-content {
+  width: auto;
 }
 
 }
